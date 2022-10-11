@@ -1,0 +1,41 @@
+<app-header  [fixed]="false"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo_digessp.png', width: 100, height: 55, alt: '- SARE -'}">
+  <span class="brand-text font-weight-light"><strong>SARE</strong></span>
+  <ul class="nav navbar-nav ml-auto">
+    <span> Bienvenido: &nbsp;&nbsp;&nbsp; </span>
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle
+        (click)="false">
+        <strong> {{username}} </strong>
+        <!-- <img src="assets/img/brand/logo_bicentenario.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" /> -->
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <!--<div class="dropdown-header text-center"><strong>Configuración</strong></div>-->
+        <!-- <a class="dropdown-item" [routerLink]="['/profile']"><i class="fa fa-user"></i> Perfil</a>
+                [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+                -->
+        <!-- <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a> -->
+        <a class="dropdown-item hand" (click)="logout()"><i class="fa fa-lock"></i> Cerrar Sesión</a>
+      </div>
+    </li> 
+  </ul>
+</app-header>
+
+<div class="app-body">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- <cui-breadcrumb> </cui-breadcrumb> -->
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<!-- <app-footer>
+  <span><a href="https://coreui.io">CoreUI</a> &copy; 2021 creativeLabs.</span>
+  <span class="ml-auto">Powered by <a href="https://coreui.io/angular">CoreUI for Angular</a></span>
+</app-footer> -->
